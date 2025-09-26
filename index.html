@@ -4,10 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stellar Interiors - Transforming Houses into Dream Homes</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Hover.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Waypoints -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.min.js"></script>
     <style>
         :root {
             --primary-color: #F8F8F8;
@@ -62,6 +80,107 @@
         }
 
         /* Responsive grid for services icons */
+        /* Custom Animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #ffc107;
+            border-radius: 5px;
+        }
+        
+        /* Mouse Scroll Animation */
+        .mouse {
+            width: 30px;
+            height: 50px;
+            border: 2px solid #fff;
+            border-radius: 20px;
+            display: flex;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .wheel {
+            display: block;
+            width: 6px;
+            height: 10px;
+            background: #ffc107;
+            border-radius: 3px;
+            margin: 5px auto;
+            animation: scroll 2s infinite;
+        }
+        
+        @keyframes scroll {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(15px); opacity: 0; }
+        }
+        
+        /* Hover Effects */
+        .hover-effect {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hover-effect:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(-100%) rotate(45deg);
+            transition: transform 0.6s ease;
+        }
+        
+        .hover-effect:hover:after {
+            transform: translateX(100%) rotate(45deg);
+        }
+        
+        .counter-box {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .counter-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .shape-1, .shape-2, .shape-3 {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .shape-2 {
+            animation-delay: 2s;
+        }
+        
+        .shape-3 {
+            animation-delay: 4s;
+        }
+        
         .icons-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -223,100 +342,178 @@
 </section>
 
 <!-- End-to-end interior solutions Section -->
-<section id="solutions" class="py-24 px-8 bg-gray-50 fade-in-section">
-    <div class="container mx-auto max-w-6xl md:w-4/5">
-        <h2 class="text-3xl md:text-4xl font-semibold mb-12 text-gray-800">End-to-end Interior Solutions</h2>
-        <div class="icons-grid justify-items-center">
-            <div class="flex flex-col items-center p-4">
-                <div class="w-16 h-16 mb-4 rounded-full bg-amber-200 flex items-center justify-center icon-bounce">
-                    <svg class="w-8 h-8 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.657 0 3 1.343 3 3v2a3 3 0 01-3 3v0a3 3 0 01-3-3v-2c0-1.657 1.343-3 3-3zM12 18v2m-6-8h12"></path></svg>
+<section id="solutions" class="py-24 px-4 md:px-8 bg-gray-50 overflow-hidden">
+    <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">End-to-end Interior Solutions</h2>
+            <div class="w-20 h-1 bg-amber-500 mx-auto mb-6"></div>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Comprehensive design solutions tailored to transform your space into a masterpiece of functionality and style.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Solution 1 -->
+            <div class="solution-card group" data-aos="fade-up" data-aos-delay="100">
+                <div class="solution-icon">
+                    <svg class="w-12 h-12 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                    </svg>
                 </div>
-                <h4 class="font-semibold text-gray-800 text-lg">Lighting</h4>
-            </div>
-            <div class="flex flex-col items-center p-4">
-                <div class="w-16 h-16 mb-4 rounded-full bg-amber-200 flex items-center justify-center icon-bounce">
-                    <svg class="w-8 h-8 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h18M3 18h18M3 6h18"></path></svg>
+                <h3 class="solution-title">Space Planning</h3>
+                <p class="solution-description">Optimize your space with our expert layout and space planning services.</p>
+                <div class="solution-overlay">
+                    <a href="#contact" class="solution-link">Learn More <span>→</span></a>
                 </div>
-                <h4 class="font-semibold text-gray-800 text-lg">Furniture</h4>
             </div>
-            <div class="flex flex-col items-center p-4">
-                <div class="w-16 h-16 mb-4 rounded-full bg-amber-200 flex items-center justify-center icon-bounce">
-                    <svg class="w-8 h-8 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9v6m-4-6v6m-4-6v6m-4-6v6"></path></svg>
+            
+            <!-- Solution 2 -->
+            <div class="solution-card group" data-aos="fade-up" data-aos-delay="150">
+                <div class="solution-icon">
+                    <svg class="w-12 h-12 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                    </svg>
                 </div>
-                <h4 class="font-semibold text-gray-800 text-lg">Decor</h4>
-            </div>
-            <div class="flex flex-col items-center p-4">
-                <div class="w-16 h-16 mb-4 rounded-full bg-amber-200 flex items-center justify-center icon-bounce">
-                    <svg class="w-8 h-8 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8"></path></svg>
+                <h3 class="solution-title">Lighting Design</h3>
+                <p class="solution-description">Illuminate your space with our custom lighting solutions and ambiance creation.</p>
+                <div class="solution-overlay">
+                    <a href="#contact" class="solution-link">Learn More <span>→</span></a>
                 </div>
-                <h4 class="font-semibold text-gray-800 text-lg">Appliances</h4>
             </div>
-            <div class="flex flex-col items-center p-4">
-                <div class="w-16 h-16 mb-4 rounded-full bg-amber-200 flex items-center justify-center icon-bounce">
-                    <svg class="w-8 h-8 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            
+            <!-- Solution 3 -->
+            <div class="solution-card group" data-aos="fade-up" data-aos-delay="200">
+                <div class="solution-icon">
+                    <svg class="w-12 h-12 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+                    </svg>
                 </div>
-                <h4 class="font-semibold text-gray-800 text-lg">Flooring</h4>
-            </div>
-            <div class="flex flex-col items-center p-4">
-                <div class="w-16 h-16 mb-4 rounded-full bg-amber-200 flex items-center justify-center icon-bounce">
-                    <svg class="w-8 h-8 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.657 0 3 1.343 3 3v2a3 3 0 01-3 3v0a3 3 0 01-3-3v-2c0-1.657 1.343-3 3-3zM12 18v2m-6-8h12"></path></svg>
+                <h3 class="solution-title">Furniture</h3>
+                <p class="solution-description">Discover our curated collection of stylish and functional furniture pieces.</p>
+                <div class="solution-overlay">
+                    <a href="#contact" class="solution-link">Learn More <span>→</span></a>
                 </div>
-                <h4 class="font-semibold text-gray-800 text-lg">Custom</h4>
             </div>
-            <div class="flex flex-col items-center p-4">
-                <div class="w-16 h-16 mb-4 rounded-full bg-amber-200 flex items-center justify-center icon-bounce">
-                    <svg class="w-8 h-8 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h18M3 18h18M3 6h18"></path></svg>
+            
+            <!-- Solution 4 -->
+            <div class="solution-card group" data-aos="fade-up" data-aos-delay="250">
+                <div class="solution-icon">
+                    <svg class="w-12 h-12 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                    </svg>
                 </div>
-                <h4 class="font-semibold text-gray-800 text-lg">Windows</h4>
-            </div>
-            <div class="flex flex-col items-center p-4">
-                <div class="w-16 h-16 mb-4 rounded-full bg-amber-200 flex items-center justify-center icon-bounce">
-                    <svg class="w-8 h-8 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9v6m-4-6v6m-4-6v6m-4-6v6"></path></svg>
+                <h3 class="solution-title">Wardrobes</h3>
+                <p class="solution-description">Custom wardrobe solutions that combine style with smart storage.</p>
+                <div class="solution-overlay">
+                    <a href="#contact" class="solution-link">Learn More <span>→</span></a>
                 </div>
-                <h4 class="font-semibold text-gray-800 text-lg">Walls</h4>
             </div>
-            <div class="flex flex-col items-center p-4">
-                <div class="w-16 h-16 mb-4 rounded-full bg-amber-200 flex items-center justify-center icon-bounce">
-                    <svg class="w-8 h-8 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8"></path></svg>
+            
+            <!-- Solution 5 -->
+            <div class="solution-card group" data-aos="fade-up" data-aos-delay="100">
+                <div class="solution-icon">
+                    <svg class="w-12 h-12 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
+                    </svg>
                 </div>
-                <h4 class="font-semibold text-gray-800 text-lg">Doors</h4>
-            </div>
-            <div class="flex flex-col items-center p-4">
-                <div class="w-16 h-16 mb-4 rounded-full bg-amber-200 flex items-center justify-center icon-bounce">
-                    <svg class="w-8 h-8 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <h3 class="solution-title">Modular Kitchens</h3>
+                <p class="solution-description">Modern, functional, and stylish kitchen designs tailored to your needs.</p>
+                <div class="solution-overlay">
+                    <a href="#contact" class="solution-link">Learn More <span>→</span></a>
                 </div>
-                <h4 class="font-semibold text-gray-800 text-lg">Storage</h4>
             </div>
-            <div class="flex flex-col items-center p-4">
-                <div class="w-16 h-16 mb-4 rounded-full bg-amber-200 flex items-center justify-center icon-bounce">
-                    <svg class="w-8 h-8 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.657 0 3 1.343 3 3v2a3 3 0 01-3 3v0a3 3 0 01-3-3v-2c0-1.657 1.343-3 3-3zM12 18v2m-6-8h12"></path></svg>
+            
+            <!-- Solution 6 -->
+            <div class="solution-card group" data-aos="fade-up" data-aos-delay="150">
+                <div class="solution-icon">
+                    <svg class="w-12 h-12 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                    </svg>
                 </div>
-                <h4 class="font-semibold text-gray-800 text-lg">Kitchen</h4>
-            </div>
-            <div class="flex flex-col items-center p-4">
-                <div class="w-16 h-16 mb-4 rounded-full bg-amber-200 flex items-center justify-center icon-bounce">
-                    <svg class="w-8 h-8 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h18M3 18h18M3 6h18"></path></svg>
+                <h3 class="solution-title">False Ceilings</h3>
+                <p class="solution-description">Enhance your space with elegant and functional false ceiling designs.</p>
+                <div class="solution-overlay">
+                    <a href="#contact" class="solution-link">Learn More <span>→</span></a>
                 </div>
-                <h4 class="font-semibold text-gray-800 text-lg">Bathrooms</h4>
             </div>
-            <div class="flex flex-col items-center p-4">
-                <div class="w-16 h-16 mb-4 rounded-full bg-amber-200 flex items-center justify-center icon-bounce">
-                    <svg class="w-8 h-8 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9v6m-4-6v6m-4-6v6m-4-6v6"></path></svg>
+            
+            <!-- Solution 7 -->
+            <div class="solution-card group" data-aos="fade-up" data-aos-delay="200">
+                <div class="solution-icon">
+                    <svg class="w-12 h-12 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"></path>
+                    </svg>
                 </div>
-                <h4 class="font-semibold text-gray-800 text-lg">Bedrooms</h4>
-            </div>
-            <div class="flex flex-col items-center p-4">
-                <div class="w-16 h-16 mb-4 rounded-full bg-amber-200 flex items-center justify-center icon-bounce">
-                    <svg class="w-8 h-8 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8"></path></svg>
+                <h3 class="solution-title">TV Units</h3>
+                <p class="solution-description">Stylish and functional TV units to complement your living space.</p>
+                <div class="solution-overlay">
+                    <a href="#contact" class="solution-link">Learn More <span>→</span></a>
                 </div>
-                <h4 class="font-semibold text-gray-800 text-lg">Living Rooms</h4>
             </div>
-            <div class="flex flex-col items-center p-4">
-                <div class="w-16 h-16 mb-4 rounded-full bg-amber-200 flex items-center justify-center icon-bounce">
-                    <svg class="w-8 h-8 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            
+            <!-- Solution 8 -->
+            <div class="solution-card group" data-aos="fade-up" data-aos-delay="250">
+                <div class="solution-icon">
+                    <svg class="w-12 h-12 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
+                    </svg>
                 </div>
-                <h4 class="font-semibold text-gray-800 text-lg">Commercial</h4>
+                <h3 class="solution-title">Wall Paneling</h3>
+                <p class="solution-description">Transform your walls with our premium paneling solutions.</p>
+                <div class="solution-overlay">
+                    <a href="#contact" class="solution-link">Learn More <span>→</span></a>
+                </div>
             </div>
+           
+            <!-- Solution 9 -->
+            <div class="solution-card group" data-aos="fade-up" data-aos-delay="100">
+                <div class="solution-icon">
+                    <svg class="w-12 h-12 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                    </svg>
+                </div>
+                <h3 class="solution-title">Living Rooms</h3>
+                <p class="solution-description">Create inviting and comfortable living spaces with our expert designs.</p>
+                <div class="solution-overlay">
+                    <a href="#contact" class="solution-link">Learn More <span>→</span></a>
+                </div>
+            </div>
+            
+            <!-- Solution 10 -->
+            <div class="solution-card group" data-aos="fade-up" data-aos-delay="150">
+                <div class="solution-icon">
+                    <svg class="w-12 h-12 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                    </svg>
+                </div>
+                <h3 class="solution-title">Bathrooms</h3>
+                <p class="solution-description">Luxurious and functional bathroom designs for your comfort.</p>
+                <div class="solution-overlay">
+                    <a href="#contact" class="solution-link">Learn More <span>→</span></a>
+                </div>
+            </div>
+            
+            
+            <!-- Solution 11 -->
+            <div class="solution-card group" data-aos="fade-up" data-aos-delay="200">
+                <div class="solution-icon">
+                    <svg class="w-12 h-12 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                    </svg>
+                </div>
+                <h3 class="solution-title">Commercial Spaces</h3>
+                <p class="solution-description">Professional interior solutions for businesses and commercial properties.</p>
+                <div class="solution-overlay">
+                    <a href="#contact" class="solution-link">Learn More <span>→</span></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-16" data-aos="fade-up">
+            <a href="#contact" class="bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 px-8 rounded-full inline-flex items-center transition-colors duration-300 transform hover:scale-105">
+                Get Your Free Consultation
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
+            </a>
         </div>
     </div>
 </section>
@@ -399,6 +596,289 @@
 
 <!-- Add this in the head section -->
 <style>
+    /* Solution Cards */
+    .solution-card {
+        background-color: white;
+        border-radius: 1rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        overflow: hidden;
+        transition: all 0.5s ease;
+        position: relative;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .solution-card:hover {
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    .solution-icon {
+        background-color: #FFFBEB;
+        padding: 1rem;
+        border-radius: 9999px;
+        width: 5rem;
+        height: 5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 2rem auto 1.5rem auto;
+        transition: transform 0.3s ease;
+    }
+    
+    .solution-card:hover .solution-icon {
+        transform: translateY(-0.5rem);
+        background-color: #FEF3C7;
+    }
+    
+    .solution-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #1F2937;
+        text-align: center;
+        padding: 0 1.5rem;
+        margin-bottom: 0.75rem;
+        transition: color 0.3s ease;
+    }
+    
+    .solution-description {
+        color: #4B5563;
+        text-align: center;
+        padding: 0 1.5rem;
+        margin-bottom: 1.5rem;
+        transition: color 0.3s ease;
+        flex-grow: 1;
+    }
+    
+    .solution-overlay {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(to top, rgba(217, 119, 6, 0.9), transparent);
+        opacity: 0;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding-bottom: 2rem;
+        transition: all 0.5s ease;
+        transform: translateY(1rem);
+    }
+    
+    .solution-card:hover .solution-overlay {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .solution-link {
+        background-color: white;
+        color: #B45309;
+        font-weight: 600;
+        padding: 0.5rem 1.5rem;
+        border-radius: 9999px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        display: inline-flex;
+        align-items: center;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    
+    .solution-link:hover {
+        background-color: #F3F4F6;
+    }
+    
+    .solution-link span {
+        margin-left: 0.5rem;
+        transition: transform 0.3s ease;
+    }
+    
+    .solution-card:hover .solution-link span {
+        transform: translateX(0.25rem);
+    }
+    
+    /* Keyframes */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0px); }
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+
+    @keyframes slideInRight {
+        from {
+            opacity: 0;
+            transform: translateX(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    /* Animation Classes */
+    .animate-fadeInUp {
+        animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    .animate-float {
+        animation: float 3s ease-in-out infinite;
+    }
+
+    .animate-pulse {
+        animation: pulse 4s ease-in-out infinite;
+    }
+
+    .animate-slideInRight {
+        animation: slideInRight 0.8s ease-out forwards;
+    }
+
+    .animate-slideInLeft {
+        animation: slideInLeft 0.8s ease-out forwards;
+    }
+
+    .delay-100 {
+        animation-delay: 0.1s;
+    }
+
+    .delay-200 {
+        animation-delay: 0.2s;
+    }
+
+    .delay-300 {
+        animation-delay: 0.3s;
+    }
+
+    .delay-400 {
+        animation-delay: 0.4s;
+    }
+
+    .delay-500 {
+        animation-delay: 0.5s;
+    }
+
+    /* Hover Animations */
+    .hover-scale {
+        transition: transform 0.3s ease;
+    }
+
+    .hover-scale:hover {
+        transform: scale(1.03);
+    }
+
+    .hover-rotate {
+        transition: transform 0.3s ease;
+    }
+
+    .hover-rotate:hover {
+        transform: rotate(2deg);
+    }
+
+    /* Solutions Section Styles */
+    .solution-item {
+        position: relative;
+        background-color: white;
+        border-radius: 1rem;
+        padding: 1.5rem;
+        text-align: center;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        border: 1px solid #f3f4f6;
+        overflow: hidden;
+        height: 220px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .solution-item:hover {
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        transform: translateY(-5px);
+    }
+
+    .solution-icon {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 9999px;
+        background-color: #fef3c7;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        color: #92400e;
+        transition: transform 0.3s ease;
+    }
+
+    .solution-item:hover .solution-icon {
+        transform: scale(1.1);
+    }
+
+    .solution-title {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: #1f2937;
+        margin-bottom: 0.5rem;
+        transition: color 0.3s ease;
+    }
+
+    .solution-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to bottom, rgba(245, 158, 11, 0.9), rgba(217, 119, 6, 0.9));
+        color: white;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        transform: translateY(10px);
+        border-radius: 0.75rem;
+    }
+
+    .solution-item:hover .solution-overlay {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .solution-overlay p {
+        font-size: 0.875rem;
+        line-height: 1.5;
+        text-align: center;
+    }
+
+    /* Sticky CTA Styles */
+    #sticky-cta.visible {
+        transform: translateY(0);
+    }
+
     /* WhatsApp Button Styles */
     .whatsapp-float {
         position: fixed;
@@ -420,7 +900,7 @@
         box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
         position: relative;
         transition: all 0.3s ease-in-out;
-        animation: float 3s ease-in-out infinite;
+        animation: float 3s ease-in-out infinite, pulse 2s ease-in-out infinite;
     }
 
     .whatsapp-btn:hover {
@@ -608,10 +1088,222 @@
         });
     };
 
-    // Initialize all functions
+    // Sticky CTA functionality
+    const showStickyCTA = () => {
+        const stickyCTA = document.getElementById('sticky-cta');
+        if (!stickyCTA) return;
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    stickyCTA.classList.remove('visible');
+                } else {
+                    stickyCTA.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Observe the contact section
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+            observer.observe(contactSection);
+        }
+    };
+
+    // Animate elements on scroll
+    const animateElementsOnScroll = () => {
+        const elements = document.querySelectorAll('.animate-on-scroll');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeInUp');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        elements.forEach(element => {
+            observer.observe(element);
+        });
+    };
+
+    // Add hover effect to all buttons
+    const addButtonHoverEffects = () => {
+        const buttons = document.querySelectorAll('button, .btn, [role="button"], a[href^="#"], a[href^="/"]');
+        buttons.forEach(button => {
+            if (!button.closest('.no-hover')) {
+                button.classList.add('hover-scale');
+            }
+        });
+    };
+
+    // Add animation to service cards and gallery items
+    const animateServiceCards = () => {
+        // Service cards
+        const serviceCards = document.querySelectorAll('.service-card');
+        serviceCards.forEach((card, index) => {
+            card.classList.add('animate-on-scroll');
+            card.style.animationDelay = `${index * 0.1}s`;
+        });
+
+        // Gallery items
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        galleryItems.forEach((item, index) => {
+            item.classList.add('animate-on-scroll');
+            item.style.animationDelay = `${index * 0.1 + 0.2}s`;
+        });
+
+        // Testimonial cards
+        const testimonialCards = document.querySelectorAll('.testimonial-card');
+        testimonialCards.forEach((card, index) => {
+            card.classList.add('animate-on-scroll');
+            card.style.animationDelay = `${index * 0.15}s`;
+        });
+
+        // Stats counters
+        const statNumbers = document.querySelectorAll('.stat-number');
+        if (statNumbers.length > 0) {
+            const animateNumbers = () => {
+                statNumbers.forEach(stat => {
+                    const target = +stat.getAttribute('data-target');
+                    const count = +stat.innerText;
+                    const increment = target / 50;
+                    
+                    if (count < target) {
+                        stat.innerText = Math.ceil(count + increment);
+                        setTimeout(animateNumbers, 30);
+                    } else {
+                        stat.innerText = target;
+                    }
+                });
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateNumbers();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            statNumbers.forEach(stat => observer.observe(stat));
+        }
+    };
+
+    // Initialize counter animation
+    function initCounter() {
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200;
+        
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText;
+            const increment = target / speed;
+            
+            if (count < target) {
+                counter.innerText = Math.ceil(count + increment);
+                setTimeout(initCounter, 1);
+            } else {
+                counter.innerText = target.toLocaleString();
+            }
+        });
+    }
+    
+    // Initialize AOS (Animate On Scroll)
+    function initAOS() {
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+    }
+    
+    // Initialize GSAP animations
+    function initGSAP() {
+        if (typeof gsap !== 'undefined' && gsap.registerPlugin) {
+            gsap.registerPlugin(ScrollTrigger);
+            
+            // Animate hero elements
+            gsap.from('.hero-content h1', {
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                ease: 'power3.out'
+            });
+            
+            gsap.from('.hero-content p', {
+                y: 30,
+                opacity: 0,
+                duration: 1,
+                delay: 0.3,
+                ease: 'power3.out'
+            });
+            
+            gsap.from('.hero-buttons', {
+                y: 30,
+                opacity: 0,
+                duration: 1,
+                delay: 0.6,
+                ease: 'power3.out'
+            });
+        } else {
+            console.warn('GSAP not loaded. Some animations may not work as expected.');
+        }
+    }
+    
+    // Initialize all functions and libraries
     document.addEventListener('DOMContentLoaded', () => {
-        animateOnScroll();
+        // Initialize AOS with custom settings
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false,
+            offset: 100,
+            delay: 100
+        });
+        
+        // Initialize other libraries and functions
+        initGSAP();
+        initCounter();
         smoothScroll();
+        showStickyCTA();
+        animateElementsOnScroll();
+        addButtonHoverEffects();
+        animateServiceCards();
+        
+        // Add animation to solution cards on scroll
+        const solutionCards = document.querySelectorAll('.solution-card');
+        const solutionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        solutionCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            solutionObserver.observe(card);
+        });
+        
+        // Add animation to hero section
+        const heroContent = document.querySelector('.hero-content');
+        if (heroContent) {
+            heroContent.classList.add('animate-fadeInUp');
+        }
+        
+        // Add animation to section headings
+        document.querySelectorAll('h2').forEach((heading, index) => {
+            heading.classList.add('animate-on-scroll');
+            heading.style.animationDelay = `${index * 0.1 + 0.2}s`;
+        });
         const header = document.getElementById('main-header');
         const heroCtaButton = document.getElementById('cta-hero-button');
         const contactNavButton = document.getElementById('cta-nav-button');
@@ -684,6 +1376,21 @@
             popupModal.classList.remove('hidden');
             clearTimeout(popupTimer);
         });
+        
+        // Add click event for all solution links
+        document.querySelectorAll('.solution-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                // const service = link.closest('.solution-card').querySelector('h3').textContent;
+                // const serviceInput = document.querySelector('input[name="service"]');
+                // if (serviceInput) {
+                //     serviceInput.value = service || 'General Inquiry';
+                // }
+                popupModal.classList.remove('hidden');
+                clearTimeout(popupTimer);
+            });
+        });
+        
         ctaAboutButton.addEventListener('click', () => {
             popupModal.classList.remove('hidden');
             clearTimeout(popupTimer);
@@ -716,14 +1423,6 @@
         }, observerOptions);
 
         fadeInSections.forEach(section => observer.observe(section));
-
-        // SEO and Integration Comments
-        console.log("Website blueprint implemented. For a live site, remember to:");
-        console.log("- Replace placeholder images with professional, optimized images.");
-        console.log("- Integrate Google Analytics, Facebook Pixel, and a CRM (like Hubspot/Zoho) via their respective scripts.");
-        console.log("- Implement a backend for form submission and email confirmation.");
-        console.log("- Add schema markup for improved SEO.");
-        console.log("- Ensure all form submissions are validated and processed securely on the server-side to prevent malicious attacks and protect user data.");
     });
 </script>
 
