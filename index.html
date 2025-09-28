@@ -454,11 +454,12 @@
 <body class="overflow-x-hidden">
 <!-- Sticky Navigation Bar -->
 <header   id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
-    <nav class="container mx-auto px-6 py-4 flex justify-between items-center bg-transparent text-white transition-all duration-300">
-        <a href="#" class="flex items-center text-white space-x-2">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center bg-transparent text-white transition-all duration-300 fixed w-full z-50" id="navbar">
+        <a href="#" class="flex items-center text-white space-x-2 z-50">
             <img src="image/Interior logo.png" alt="Home Aura interior" class="h-8">
-            <!-- <span class="text-2xl font-bold">Stellar Interiors</span> -->
         </a>
+        
+        <!-- Desktop Navigation -->
         <div class="hidden md:flex space-x-8">
             <a href="#main-header" class="hover:text-amber-300 transition-colors">Home</a>
             <a href="#about" class="hover:text-amber-300 transition-colors">About Us</a>
@@ -467,9 +468,96 @@
             <a href="#gallery" class="hover:text-amber-300 transition-colors">Gallery</a>
             <a href="#contact" class="hover:text-amber-300 transition-colors">Contact</a>
         </div>
-        <button id="cta-nav-button" class="bg-amber-500 text-white font-semibold py-2 px-6 rounded-full shadow-lg hover:bg-amber-600 transition-colors hidden md:inline-block transform hover:scale-105">Get a Consultation</button>
-        <button class="md:hidden text-white text-3xl">&#9776;</button>
+        
+        <!-- Mobile Menu Button -->
+        <div class="flex items-center space-x-4">
+            <button id="cta-nav-button" class="openCallbackModal bg-amber-500 text-white font-semibold py-2 px-6 rounded-full shadow-lg hover:bg-amber-600 transition-colors hidden md:inline-block transform hover:scale-105">Get a Consultation</button>
+            <button id="mobile-menu-button" class="md:hidden text-white text-3xl focus:outline-none z-50">&#9776;</button>
+        </div>
+    
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden fixed inset-0 bg-black bg-opacity-90 z-40 flex flex-col items-center justify-center transform translate-y-full transition-transform duration-300 ease-in-out">
+            <div class="flex flex-col items-center space-y-8 text-xl">
+                <a href="#main-header" class="text-white hover:text-amber-300 transition-colors" onclick="closeMobileMenu()">Home</a>
+                <a href="#about" class="text-white hover:text-amber-300 transition-colors" onclick="closeMobileMenu()">About Us</a>
+                <a href="#services" class="text-white hover:text-amber-300 transition-colors" onclick="closeMobileMenu()">Services</a>
+                <a href="#solutions" class="text-white hover:text-amber-300 transition-colors" onclick="closeMobileMenu()">Solutions</a>
+                <a href="#gallery" class="text-white hover:text-amber-300 transition-colors" onclick="closeMobileMenu()">Gallery</a>
+                <a href="#contact" class="text-white hover:text-amber-300 transition-colors" onclick="closeMobileMenu()">Contact</a>
+                <button id="mobile-cta" class="openCallbackModal bg-amber-500 text-white font-semibold py-2 px-6 rounded-full hover:bg-amber-600 transition-colors mt-4">Get a Consultation</button>
+            </div>
+        </div>
     </nav>
+    
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileCta = document.getElementById('mobile-cta');
+        const ctaNavButton = document.getElementById('cta-nav-button');
+    
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('translate-y-0');
+            mobileMenu.classList.toggle('translate-y-full');
+            document.body.classList.toggle('overflow-hidden');
+        }
+    
+        function closeMobileMenu() {
+            mobileMenu.classList.add('translate-y-full');
+            mobileMenu.classList.remove('translate-y-0');
+            document.body.classList.remove('overflow-hidden');
+        }
+    
+        // Event Listeners
+        mobileMenuButton.addEventListener('click', toggleMobileMenu);
+        
+        // Close menu when clicking on a nav link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+    
+        // Handle CTA button click
+        function handleCtaClick() {
+            // Add your CTA functionality here
+            console.log('Get a Consultation clicked');
+            closeMobileMenu();
+        }
+    
+        mobileCta.addEventListener('click', handleCtaClick);
+        ctaNavButton.addEventListener('click', handleCtaClick);
+    
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && e.target !== mobileMenuButton) {
+                closeMobileMenu();
+            }
+        });
+    </script>
+    
+    <style>
+        /* Add smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Navbar scroll effect */
+        .scrolled {
+            background-color: rgba(0, 0, 0, 0.9);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
 </header>
 
 <!-- Hero Section -->
