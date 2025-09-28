@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -21,6 +21,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
@@ -29,7 +31,22 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- Waypoints -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.min.js"></script>
-    <style>
+       <!--===== CSS LINK =======-->
+       <link rel="stylesheet" href="assets/css/plugins/bootstrap.min.css">
+       <link rel="stylesheet" href="assets/css/plugins/aos.css">
+       <link rel="stylesheet" href="assets/css/plugins/fontawesome.css">
+       <link rel="stylesheet" href="assets/css/plugins/magnific-popup.css">
+       <link rel="stylesheet" href="assets/css/plugins/mobile.css">
+       <link rel="stylesheet" href="assets/css/plugins/owlcarousel.min.css">
+       <link rel="stylesheet" href="assets/css/plugins/sidebar.css">
+       <link rel="stylesheet" href="assets/css/plugins/slick-slider.css">
+       <link rel="stylesheet" href="assets/css/plugins/nice-select.css">
+       <link rel="stylesheet" href="assets/css/main.css">
+
+        <!--=====  JS SCRIPT LINK =======-->
+    <script src="assets/js/plugins/jquery-3-6-0.min.js"></script>
+
+   <style>
         :root {
             --primary-color: #F8F8F8;
             --secondary-color: #1A1A1A;
@@ -79,16 +96,15 @@
 
 /* New End-to-End Solutions Card Style (based on image) */
 .solution-item-new {
-    background-color: white;
     border-radius: 1rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     overflow: hidden;
     transition: all 0.5s ease;
     padding: 1.5rem 1rem;
     text-align: center;
-    position: relative;
-    height: 100%;
-    display: flex;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
@@ -101,16 +117,14 @@
 }
 
 .solution-item-new .icon-container {
-    background-color: transparent; /* Remove background color */
+    background-color: transparent;
     padding: 0;
-    width: 6rem; /* Larger container for icon */
+    width: 6rem;
     height: 6rem;
+    margin: 0 auto 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 0.5rem;
-    transition: transform 0.3s ease;
-    position: relative;
 }
 
 .solution-item-new:hover .icon-bounce {
@@ -935,14 +949,13 @@
 </section> -->
 
 <!-- Gallery Section -->
-<section id="gallery" class="py-24 px-8 bg-gray-50 fade-in-section">
+<!-- <section id="gallery" class="py-24 px-8 bg-gray-50 fade-in-section">
     <div class="container mx-auto max-w-6xl md:w-4/5">
         <h2 style=" font-size: 32px;"  class="text-3xl md:text-4xl font-semibold text-center mb-12 text-gray-800">Our Signature Portfolio: Live the Aura.</h2>
         <div class="gallery-carousels">
-            <!-- Top Carousel: Scrolls right -->
             <div id="top-carousel" class="gallery-carousel">
                 <div class="gallery-carousel-track">
-                    <!-- Images for Top Row -->
+           
                     <div class="gallery-carousel-item"><img src="/image/g10.jpg" alt="Gallery image 1"></div>
                     <div class="gallery-carousel-item"><img src="/image/g12.jpg" alt="Gallery image 2"></div>
                     <div class="gallery-carousel-item"><img src="/image/g15.jpg" alt="Gallery image 3"></div>
@@ -953,10 +966,10 @@
                     <div class="gallery-carousel-item"><img src="/image/g20.jpg" alt="Gallery image 4 (copy)"></div>
                 </div>
             </div>
-            <!-- Bottom Carousel: Scrolls left -->
+           
             <div id="bottom-carousel" class="gallery-carousel">
                 <div class="gallery-carousel-track">
-                    <!-- Images for Bottom Row -->
+            
                     <div class="gallery-carousel-item"><img src="/image/g21.jpg" alt="Gallery image 1"></div>
                     <div class="gallery-carousel-item"><img src="/image/g22.jpg" alt="Gallery image 2"></div>
                     <div class="gallery-carousel-item"><img src="/image/g1.jpg" alt="Gallery image 3"></div>
@@ -972,11 +985,250 @@
             <a href="#" class="inline-block bg-white text-gray-800 font-semibold py-3 px-8 rounded-full shadow-md hover:bg-gray-200 transition-colors">See More Transformations</a>
         </div>
     </div>
-</section>
+</section> -->
+<!--===== GALLERY AREA STARTS =======-->
+<div class="gallery8-section-area sp6" id="gallery">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 m-auto">
+          <div class="galler-header text-center heading4 space-margin60">
+            <h5 data-aos="fade-left" data-aos-duration="800">gallery</h5>
+            <div class="space20"></div>
+            <h2 class="text-anime-style-3" class="text-anime-style-3" style="font-size: 28px;">Sneak Peek of the Project</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12" data-aos="fade-up" data-aos-duration="1000">
+          <div class="gallery-slider-area owl-carousel">
+            <div class="content-area">
+              <div class="img1">
+                <img src="/image/g10.jpg" alt="">
+              </div>
+              <div class="icons">
+                <a href="gallery-v1.html" class="openCallbackModal"><i class="fa-solid fa-plus"></i></a>
+              </div>
+            </div>
+  
+            <div class="content-area">
+              <div class="img1">
+                <img src="/image/g12.jpg" alt="">
+              </div>
+              <div class="icons">
+                <a href="gallery-v1.html" class="openCallbackModal"><i class="fa-solid fa-plus"></i></a>
+              </div>
+            </div>
+  
+            <div class="content-area">
+              <div class="img1">
+                <img src="/image/g15.jpg" alt="">
+              </div>
+              <div class="icons">
+                <a href="gallery-v1.html" class="openCallbackModal"><i class="fa-solid fa-plus"></i></a>
+              </div>
+            </div>
+            <div class="content-area">
+              <div class="img1">
+                <img src="/image/g16.jpg" alt="">
+              </div>
+              <div class="icons">
+                <a href="gallery-v1.html" class="openCallbackModal"><i class="fa-solid fa-plus"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="space30"></div>
+          <div class="gallery2-slider-area owl-carousel">
+            <div class="content-area">
+              <div class="img1">
+                <img src="/image/g17.jpg" alt="">
+              </div>
+              <div class="icons">
+                <a href="gallery-v1.html" class="openCallbackModal"><i class="fa-solid fa-plus"></i></a>
+              </div>
+            </div>
+  
+            <div class="content-area">
+              <div class="img1">
+                <img src="/image/g18.jpg" alt="">
+              </div>
+              <div class="icons">
+                <a href="gallery-v1.html" class="openCallbackModal"><i class="fa-solid fa-plus"></i></a>
+              </div>
+            </div>
+  
+            <div class="content-area">
+              <div class="img1">
+                <img src="/image/g19.jpg" alt="">
+              </div>
+              <div class="icons">
+                <a href="gallery-v1.html" class="openCallbackModal"><i class="fa-solid fa-plus"></i></a>
+              </div>
+            </div>
+            <div class="content-area">
+              <div class="img1">
+                <img src="/image/g20.jpg" alt="">
+              </div>
+              <div class="icons">
+                <a href="gallery-v1.html" class="openCallbackModal"><i class="fa-solid fa-plus"></i></a>
+              </div>
+            </div>
+  
+            <div class="content-area">
+              <div class="img1">
+                <img src="/image/g21.jpg" alt="">
+              </div>
+              <div class="icons">
+                <a href="gallery-v1.html" class="openCallbackModal"><i class="fa-solid fa-plus"></i></a>
+              </div>
+            </div>
+  
+            <div class="content-area">
+              <div class="img1">
+                <img src="/image/g22.jpg" alt="">
+              </div>
+              <div class="icons">
+                <a href="gallery-v1.html" class="openCallbackModal"><i class="fa-solid fa-plus"></i></a>
+              </div>
+            </div>
+  
+            <div class="content-area">
+              <div class="img1">
+                <img src="/image/g1.jpg" alt="">
+              </div>
+              <div class="icons">
+                <a href="gallery-v1.html" class="openCallbackModal"><i class="fa-solid fa-plus"></i></a>
+              </div>
+            </div>
+  
+            <div class="content-area">
+              <div class="img1">
+                <img src="/image/g2.jpg" alt="">
+              </div>
+              <div class="icons">
+                <a href="gallery-v1.html" class="openCallbackModal"><i class="fa-solid fa-plus"></i></a>
+              </div>
+            </div>
+  
+            <div class="content-area">
+              <div class="img1">
+                <img src="/image/g9.jpg" alt="">
+              </div>
+              <div class="icons">
+                <a href="gallery-v1.html" class="openCallbackModal"><i class="fa-solid fa-plus"></i></a>
+              </div>
+            </div>
+  
+            <div class="content-area">
+              <div class="img1">
+                <img src="/image/g18.jpg" alt="">
+              </div>
+              <div class="icons">
+                <a href="gallery-v1.html" class="openCallbackModal"><i class="fa-solid fa-plus"></i></a>
+              </div>
+            </div>
+            <div class="content-area">
+              <div class="img1">
+                <img src="/image/g16.jpg" alt="">
+              </div>
+              <div class="icons">
+                <a href="gallery-v1.html" class="openCallbackModal"><i class="fa-solid fa-plus"></i></a>
+              </div>
+            </div>
+         
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--===== GALLERY AREA ENDS =======-->
+  <!--Faq Section-->
+ <!-- FAQ Section -->
+<div class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    
+    <!-- FAQ Item 1 -->
+    <div class="faq-item">
+        <div class="faq-question">What makes North Bangalore a good location for real estate investment?</div>
+        <div class="faq-answer">
+            <p>North Bangalore has emerged as one of the most promising real estate destinations due to several key factors:</p>
+            <span>Strategic Location</span>
+            <p>Proximity to the international airport, major IT hubs, and excellent connectivity through the Outer Ring Road and Metro network make it highly desirable.</p>
+            <span>Infrastructure Development</span>
+            <p>Ongoing and planned infrastructure projects including metro extensions, road widening, and commercial developments are enhancing the area's appeal.</p>
+            <span>Appreciation Potential</span>
+            <p>Consistent price appreciation and growing demand from both end-users and investors make it a sound investment choice.</p>
+        </div>
+    </div>
 
+    <!-- FAQ Item 2 -->
+    <div class="faq-item">
+        <div class="faq-question">What are the advantages of buying a row house over an apartment?</div>
+        <div class="faq-answer">
+            <p>Row houses offer several advantages that make them an attractive option for homebuyers:</p>
+            <span>More Space</span>
+            <p>Enjoy larger living areas, private gardens, and often multiple floors compared to apartments.</p>
+            <span>Privacy</span>
+            <p>Benefit from independent living with no shared walls on the sides, offering more privacy than apartments.</p>
+            <span>Customization</span>
+            <p>Greater flexibility in terms of interior modifications and exterior personalization.</p>
+            <span>Better ROI</span>
+            <p>Typically offer better long-term appreciation compared to apartments in the same area.</p>
+        </div>
+    </div>
+
+    <!-- FAQ Item 3 -->
+    <div class="faq-item">
+        <div class="faq-question">What amenities should I look for in a gated community?</div>
+        <div class="faq-answer">
+            <p>When choosing a gated community, consider these essential amenities:</p>
+            <span>Security</span>
+            <p>24/7 security personnel, CCTV surveillance, and access control systems.</p>
+            <span>Recreational Facilities</span>
+            <p>Clubhouse, swimming pool, children's play area, and landscaped gardens.</p>
+            <span>Utilities</span>
+            <p>Power backup, water supply, and waste management systems.</p>
+            <span>Community Spaces</span>
+            <p>Walking/jogging tracks, community halls, and open spaces for social gatherings.</p>
+        </div>
+    </div>
+
+    <!-- FAQ Item 4 -->
+    <div class="faq-item">
+        <div class="faq-question">What is the current market trend for real estate in North Bangalore?</div>
+        <div class="faq-answer">
+            <p>The North Bangalore real estate market is currently showing several positive trends:</p>
+            <span>Price Appreciation</span>
+            <p>Steady price growth in key areas like Thanisandra, Hebbal, and Yelahanka.</p>
+            <span>Increased Demand</span>
+            <p>Growing interest from IT professionals and families looking for premium properties.</p>
+            <span>Infrastructure Boost</span>
+            <p>New metro lines and road projects are enhancing connectivity and boosting property values.</p>
+            <span>Rental Market</span>
+            <p>Strong rental demand, especially in areas close to tech parks and business districts.</p>
+        </div>
+    </div>
+
+    <!-- FAQ Item 5 -->
+    <div class="faq-item">
+        <div class="faq-question">What are the key legal documents to verify before buying a property?</div>
+        <div class="faq-answer">
+            <p>Ensure you verify these essential documents before making a purchase:</p>
+            <span>Title Deed</span>
+            <p>Verify the ownership and title clearance of the property.</p>
+            <span>Approved Plans</span>
+            <p>Check for BBMP/BDA approval and sanctioned building plans.</p>
+            <span>Encumbrance Certificate</span>
+            <p>Ensures the property is free from legal dues and loans.</p>
+            <span>Khata Certificate & Extract</span>
+            <p>Important for property tax assessment and municipal records.</p>
+            <span>Occupancy Certificate</span>
+            <p>Issued by the local authority, certifying the building is ready for occupation.</p>
+        </div>
+    </div>
+</div>
 <!-- Contact Section -->
-<section id="contact" class="py-24 px-8 bg-gray-100 fade-in-section">
-    <div class="container mx-auto max-w-4xl md:w-4/5">
+<section id="contact" class="py-24 px-4 md:px-8 bg-gray-100 fade-in-section w-full">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1800px]">
         <h2  style=" font-size: 32px;"  class="text-3xl md:text-4xl font-semibold mb-4 text-gray-800">Ready for Your Home's Transformation?</h2>
         <p class="text-lg text-gray-600 mb-12">Tell us a bit about your project. We'll arrange a free site visit, followed by your personalized 3D design concept and a transparent quote. No commitment required.</p>
         <form class="space-y-6 bg-white p-8 rounded-xl shadow-lg" id="contactFormBanner">
@@ -1465,6 +1717,25 @@
         </p>
     </div>
 </footer>
+
+<!--===== JS SCRIPT LINK =======-->
+<script src="assets/js/plugins/bootstrap.min.js"></script>
+<script src="assets/js/plugins/fontawesome.js"></script>
+<script src="assets/js/plugins/aos.js"></script>
+<script src="assets/js/plugins/counter.js"></script>
+<script src="assets/js/plugins/sidebar.js"></script>
+<script src="assets/js/plugins/magnific-popup.js"></script>
+<script src="assets/js/plugins/mobilemenu.js"></script>
+<script src="assets/js/plugins/owlcarousel.min.js"></script>
+<script src="assets/js/plugins/nice-select.js"></script>
+<script src="assets/js/plugins/waypoints.js"></script>
+<script src="assets/js/plugins/slick-slider.js"></script>
+<script src="assets/js/plugins/circle-progress.js"></script>
+<script src="assets/js/plugins/gsap.min.js"></script>
+<script src="assets/js/plugins/ScrollTrigger.min.js"></script>
+<script src="assets/js/plugins/Splitetext.js"></script>
+<!-- <script src="assets/js/main.js"></script> -->
+<script src="assets/js/main.min.js"></script>
 <script src="assets/js/config.js"></script>
 <script src="assets/js/contact.js"></script>
 <script>
@@ -1840,6 +2111,14 @@
 
         fadeInSections.forEach(section => observer.observe(section));
     });
+</script>
+<script>
+    const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    item.querySelector('.faq-question').addEventListener('click', () => {
+      item.classList.toggle('active');
+    });
+  });
 </script>
 
 </body>
