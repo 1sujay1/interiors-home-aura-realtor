@@ -375,6 +375,16 @@
         #bottom-carousel .gallery-carousel-track {
             animation: scrollLoop 40s linear infinite;
         }
+           /* Add smooth scrolling */
+           html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Navbar scroll effect */
+        .scrolled {
+            background-color: rgba(0, 0, 0, 0.9);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
     </style>
 
 <!-- Google tag (gtag.js) -->
@@ -454,7 +464,7 @@
 <body class="overflow-x-hidden">
 <!-- Sticky Navigation Bar -->
 <header   id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
-    <nav class="container mx-auto px-6 py-4 flex justify-between items-center bg-transparent text-white transition-all duration-300 fixed w-full z-50" id="navbar">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center text-white transition-all duration-300 fixed w-full z-50" id="navbar">
         <a href="#" class="flex items-center text-white space-x-2 z-50">
             <img src="image/Interior logo.png" alt="Home Aura interior" class="h-8">
         </a>
@@ -533,19 +543,6 @@
             }
         });
     </script>
-    
-    <style>
-        /* Add smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* Navbar scroll effect */
-        .scrolled {
-            background-color: rgba(0, 0, 0, 0.9);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-    </style>
     
     <script>
         // Navbar scroll effect
@@ -703,7 +700,7 @@
         
         <div class="grid icons-grid mx-auto gap-8 justify-center">
             
-            <div class="solution-item-new group" data-aos="fade-up" data-aos-delay="100">
+            <div class="solution-item-new openCallbackModal group" data-aos="fade-up" data-aos-delay="100">
                 <div class="icon-container">
                     <svg class="icon-bounce" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" xmlns="http://www.w3.org/2000/svg">
                         <path d="M70 20H30a5 5 0 00-5 5v50a5 5 0 005 5h40a5 5 0 005-5V25a5 5 0 00-5-5zM25 40h50M25 60h50M35 25V15M65 25V15M35 45v-5M65 45v-5M35 65v-5M65 65v-5M40 70v10M60 70v10M30 30h40M30 50h40"/>
@@ -712,7 +709,7 @@
                 <h3 class="solution-title">Modular Kitchen</h3>
             </div>
             
-            <div class="solution-item-new group" data-aos="fade-up" data-aos-delay="150">
+            <div class="solution-item-new openCallbackModal group" data-aos="fade-up" data-aos-delay="150">
                 <div class="icon-container">
                     <svg class="icon-bounce" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" xmlns="http://www.w3.org/2000/svg">
                         <path d="M75 15H25a5 5 0 00-5 5v60a5 5 0 005 5h50a5 5 0 005-5V20a5 5 0 00-5-5zM50 15v70M75 35H50M50 55h25M40 30h5M40 50h5M40 70h5"/>
@@ -721,7 +718,7 @@
                 <h3 class="solution-title">Storage and wardrobe</h3>
             </div>
             
-            <div class="solution-item-new group" data-aos="fade-up" data-aos-delay="200">
+            <div class="solution-item-new openCallbackModal group" data-aos="fade-up" data-aos-delay="200">
                 <div class="icon-container">
                     <svg class="icon-bounce" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" xmlns="http://www.w3.org/2000/svg">
                         <path d="M70 25H30a5 5 0 00-5 5v50h50V30a5 5 0 00-5-5zM35 30h30M35 55h30M40 35V20M60 35V20M40 60h20M40 70h20M45 40v10M55 40v10"/>
@@ -730,7 +727,7 @@
                 <h3 class="solution-title">Crockery Units</h3>
             </div>
             
-            <div class="solution-item-new group" data-aos="fade-up" data-aos-delay="250">
+            <div class="solution-item-new openCallbackModal group" data-aos="fade-up" data-aos-delay="250">
                 <div class="icon-container">
                     <svg class="icon-bounce" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" xmlns="http://www.w3.org/2000/svg">
                         <path d="M30 40a5 5 0 00-5 5v25a5 5 0 005 5h40a5 5 0 005-5V45a5 5 0 00-5-5H30zM40 40V30M60 40V30M35 75h30M30 70h40M45 70V50M55 70V50M35 45h30M30 50h40M40 50v10M60 50v10M40 25h20M50 25V15M30 75H20M70 75h10"/>
@@ -739,7 +736,7 @@
                 <h3 class="solution-title">Space Saving Furniture</h3>
             </div>
             
-            <div class="solution-item-new group" data-aos="fade-up" data-aos-delay="300">
+            <div class="solution-item-new openCallbackModal group" data-aos="fade-up" data-aos-delay="300">
                 <div class="icon-container">
                     <svg class="icon-bounce" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" xmlns="http://www.w3.org/2000/svg">
                         <path d="M80 30H20a5 5 0 00-5 5v30a5 5 0 005 5h60a5 5 0 005-5V35a5 5 0 00-5-5zM20 50h60M30 40h40M30 60h40M30 70h40M45 70V80M55 70V80"/>
@@ -747,11 +744,7 @@
                 </div>
                 <h3 class="solution-title">TV Units</h3>
             </div>
-
-        </div>
-
-        <div class="grid icons-grid mx-auto gap-8 justify-center mt-8">
-            <div class="solution-item-new group" data-aos="fade-up" data-aos-delay="100">
+            <div class="solution-item-new openCallbackModal group" data-aos="fade-up" data-aos-delay="100">
                 <div class="icon-container">
                     <svg class="icon-bounce" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" xmlns="http://www.w3.org/2000/svg">
                         <path d="M70 40H30a5 5 0 00-5 5v30a5 5 0 005 5h40a5 5 0 005-5V45a5 5 0 00-5-5zM35 40V25M65 40V25M35 60h30M35 50h30M35 70h30M45 40v10M55 40v10M45 75V85M55 75V85"/>
@@ -760,7 +753,7 @@
                 <h3 class="solution-title">Study Tables</h3>
             </div>
             
-            <div class="solution-item-new group" data-aos="fade-up" data-aos-delay="150">
+            <div class="solution-item-new openCallbackModal group" data-aos="fade-up" data-aos-delay="150">
                 <div class="icon-container">
                     <svg class="icon-bounce" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" xmlns="http://www.w3.org/2000/svg">
                         <path d="M20 30h60M25 40h50M30 50h40M35 60h30M40 70h20M20 30l5 10m55-10l-5 10M25 40l5 10m45-10l-5 10M30 50l5 10m35-10l-5 10M35 60l5 10m25-10l-5 10M40 70L50 80 60 70M40 20h20M50 20v10"/>
@@ -769,7 +762,7 @@
                 <h3 class="solution-title">False Ceiling</h3>
             </div>
             
-            <div class="solution-item-new group" data-aos="fade-up" data-aos-delay="200">
+            <div class="solution-item-new openCallbackModal group" data-aos="fade-up" data-aos-delay="200">
                 <div class="icon-container">
                     <svg class="icon-bounce" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" xmlns="http://www.w3.org/2000/svg">
                         <path d="M50 15v10M50 65l10 10M50 65l-10 10M50 65a15 15 0 100-30 15 15 0 000 30zM60 45h5M40 45h-5M50 35V30"/>
@@ -778,7 +771,7 @@
                 <h3 class="solution-title">Lights</h3>
             </div>
             
-            <div class="solution-item-new group" data-aos="fade-up" data-aos-delay="250">
+            <div class="solution-item-new openCallbackModal group" data-aos="fade-up" data-aos-delay="250">
                 <div class="icon-container">
                     <svg class="icon-bounce" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" xmlns="http://www.w3.org/2000/svg">
                         <path d="M25 20h50v60H25zM30 25l50 50M30 50l25 25M30 75h45M45 25v30M45 55l30 30M55 25v20M55 45l20 20"/>
@@ -787,7 +780,7 @@
                 <h3 class="solution-title">Wallpaper</h3>
             </div>
             
-            <div class="solution-item-new group" data-aos="fade-up" data-aos-delay="300">
+            <div class="solution-item-new openCallbackModal group" data-aos="fade-up" data-aos-delay="300">
                 <div class="icon-container">
                     <svg class="icon-bounce" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" xmlns="http://www.w3.org/2000/svg">
                         <path d="M25 75h50M35 70v10M65 70v10M30 30l-5 5 10 10 5-5zM60 20h20v20h-20zM70 20v60M75 50h10M75 60h10M40 40v30M30 50a10 10 0 0110-10"/>
@@ -795,11 +788,7 @@
                 </div>
                 <h3 class="solution-title">Wall Paint</h3>
             </div>
-
-        </div>
-        
-        <div class="grid icons-grid mx-auto gap-8 justify-center mt-8 max-w-4xl lg:max-w-none">
-            <div class="solution-item-new group" data-aos="fade-up" data-aos-delay="100">
+            <div class="solution-item-new openCallbackModal group" data-aos="fade-up" data-aos-delay="100">
                 <div class="icon-container">
                     <svg class="icon-bounce" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" xmlns="http://www.w3.org/2000/svg">
                         <path d="M75 25H25a5 5 0 00-5 5v50h60V30a5 5 0 00-5-5zM25 60h50M30 45h40M35 50v10M65 50v10M25 35h50M25 70h50M30 25V15M40 15h20"/>
@@ -808,7 +797,7 @@
                 <h3 class="solution-title">Bathroom</h3>
             </div>
             
-            <div class="solution-item-new group" data-aos="fade-up" data-aos-delay="150">
+            <div class="solution-item-new openCallbackModal group" data-aos="fade-up" data-aos-delay="150">
                 <div class="icon-container">
                     <svg class="icon-bounce" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" xmlns="http://www.w3.org/2000/svg">
                         <path d="M65 30H35v45h30zM50 30v-5M40 30h20M35 75v10h30v-10M45 75h10M45 45h10M45 60h10M35 30a15 15 0 0030 0M35 45H30M65 45h5M35 60H30M65 60h5"/>
@@ -817,7 +806,7 @@
                 <h3 class="solution-title">Pooja Unit</h3>
             </div>
             
-            <div class="solution-item-new group" data-aos="fade-up" data-aos-delay="200">
+            <div class="solution-item-new openCallbackModal group" data-aos="fade-up" data-aos-delay="200">
                 <div class="icon-container">
                     <svg class="icon-bounce" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" xmlns="http://www.w3.org/2000/svg">
                         <path d="M75 25H25a5 5 0 00-5 5v50h60V30a5 5 0 00-5-5zM25 60h50M30 45h40M35 50v10M65 50v10M45 25v-5M55 25v-5M35 70h30M45 70v10M55 70v10M30 75h40"/>
@@ -826,7 +815,7 @@
                 <h3 class="solution-title">Foyer Designs</h3>
             </div>
             
-            <div class="solution-item-new group" data-aos="fade-up" data-aos-delay="250">
+            <div class="solution-item-new openCallbackModal group" data-aos="fade-up" data-aos-delay="250">
                 <div class="icon-container">
                     <svg class="icon-bounce" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" xmlns="http://www.w3.org/2000/svg">
                         <path d="M30 40h40a5 5 0 015 5v25a5 5 0 01-5 5H30a5 5 0 01-5-5V45a5 5 0 015-5zM30 70h40M45 40v10M55 40v10M35 75h30M30 70v10M70 70v10M45 15h10M50 15v15M40 25h20"/>
@@ -835,7 +824,7 @@
                 <h3 class="solution-title">Movable furniture</h3>
             </div>
 
-            <div class="solution-item-new group" data-aos="fade-up" data-aos-delay="300">
+            <div class="solution-item-new openCallbackModal group" data-aos="fade-up" data-aos-delay="300">
                 <div class="icon-container">
                     <svg class="icon-bounce" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" xmlns="http://www.w3.org/2000/svg">
                         <path d="M75 75h-50V50h50zM25 60h50M30 65v10M70 65v10M35 50V35a5 5 0 015-5h20a5 5 0 015 5v15M40 40h20M40 50h20M75 60v-5M25 60v-5M70 55h-5M30 55h5M75 70v-5M25 70v-5M40 25h20M50 25v5"/>
@@ -843,6 +832,19 @@
                 </div>
                 <h3 class="solution-title">Kids Bedroom</h3>
             </div>
+            <!-- <div class="solution-item-new openCallbackModal group" data-aos="fade-up" data-aos-delay="250">
+                <div class="icon-container">
+                    <svg class="icon-bounce" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M25 20h50v60H25zM30 25l50 50M30 50l25 25M30 75h45M45 25v30M45 55l30 30M55 25v20M55 45l20 20"/>
+                    </svg>
+                </div>
+                <h3 class="solution-title">Much More</h3>
+            </div> -->
+        </div>
+
+        
+        <div class="grid icons-grid mx-auto gap-8 justify-center mt-8 max-w-4xl lg:max-w-none">
+           
             
             <div class="hidden lg:block"></div> 
 
